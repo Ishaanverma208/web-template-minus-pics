@@ -41,7 +41,7 @@ const About = () => {
           {highlights.map((item, index) => (
             <Card
               key={index}
-              className="group p-8 bg-card border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-primary/10 animate-fade-in-up"
+              className="group p-8 bg-card border-border card-glow animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="mb-6">
@@ -57,7 +57,7 @@ const About = () => {
 
         {/* Professional bio */}
         <div className="mt-20 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: "0.4s" }}>
-          <Card className="p-10 md:p-12 bg-card border-border hover:border-primary/20 transition-all duration-500">
+          <Card className="p-10 md:p-12 bg-card border-border hover-glow">
             <div className="prose prose-invert max-w-none">
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 I'm a fourth-year B.Tech student at VIT Chennai with a passion for leveraging technology to solve complex problems. My journey spans AI/ML development, data analytics, and algorithmic trading—fields where I've built impactful projects and gained hands-on experience.

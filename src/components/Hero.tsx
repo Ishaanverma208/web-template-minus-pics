@@ -36,7 +36,7 @@ const Hero = () => {
             {/* Left: Primary Content */}
             <div className="space-y-8 animate-fade-in">
               {/* Professional badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:scale-105 cursor-pointer">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-all duration-300 hover-lift cursor-pointer">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -65,7 +65,7 @@ const Hero = () => {
               <div className="flex flex-wrap gap-4">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-primary to-accent hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/50"
+                  className="bg-gradient-to-r from-primary to-accent hover-lift shadow-lg hover:shadow-[0_20px_60px_-10px_hsl(217_60%_55%/0.6)]"
                   onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   View My Work
@@ -74,7 +74,7 @@ const Hero = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-border hover:border-primary/50 hover:scale-105 transition-all duration-300"
+                  className="border-border hover:border-primary/50 hover-lift hover:bg-primary/5"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Get In Touch
@@ -87,7 +87,7 @@ const Hero = () => {
                   href="https://github.com/Ishaanverma208"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-card border border-border hover:border-primary/50 hover:scale-110 transition-all duration-300"
+                  className="p-3 rounded-full bg-card border border-border hover:border-primary/50 hover-scale transition-all duration-300 hover:shadow-[0_8px_30px_hsl(217_60%_55%/0.4)]"
                   aria-label="GitHub"
                 >
                   <Github size={24} />
@@ -96,14 +96,14 @@ const Hero = () => {
                   href="https://www.linkedin.com/in/ishaan-verma-b47146305/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-card border border-border hover:border-accent/50 hover:scale-110 transition-all duration-300"
+                  className="p-3 rounded-full bg-card border border-border hover:border-accent/50 hover-scale transition-all duration-300 hover:shadow-[0_8px_30px_hsl(199_50%_52%/0.4)]"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={24} />
                 </a>
                 <a
                   href="mailto:ishaanverma208@gmail.com"
-                  className="p-3 rounded-full bg-card border border-border hover:border-primary/50 hover:scale-110 transition-all duration-300"
+                  className="p-3 rounded-full bg-card border border-border hover:border-primary/50 hover-scale transition-all duration-300 hover:shadow-[0_8px_30px_hsl(217_60%_55%/0.4)]"
                   aria-label="Email"
                 >
                   <Mail size={24} />
@@ -113,7 +113,7 @@ const Hero = () => {
 
             {/* Right: Feature Cards */}
             <div className="hidden lg:grid grid-cols-1 gap-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <div className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/10">
+              <div className="group p-6 rounded-2xl bg-card border border-border card-glow">
                 <div className="flex items-center gap-4">
                   <div className="p-3 rounded-xl bg-gradient-to-br from-primary to-accent">
                     <Code size={24} className="text-white" />
@@ -125,7 +125,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="group p-6 rounded-2xl bg-card border border-border hover:border-accent/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-accent/10">
+              <div className="group p-6 rounded-2xl bg-card border border-border card-glow">
                 <div className="flex items-center gap-4">
                   <div className="p-3 rounded-xl bg-gradient-to-br from-accent to-primary">
                     <Brain size={24} className="text-white" />
@@ -137,7 +137,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/10">
+              <div className="group p-6 rounded-2xl bg-card border border-border card-glow">
                 <div className="flex items-center gap-4">
                   <div className="p-3 rounded-xl bg-gradient-to-br from-primary to-accent">
                     <TrendingUp size={24} className="text-white" />

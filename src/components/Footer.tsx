@@ -20,7 +20,7 @@ const Footer = () => {
               href="https://github.com/Ishaanverma208"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-all hover:scale-110"
+              className="text-muted-foreground hover:text-primary hover-scale hover:drop-shadow-[0_4px_12px_hsl(217_60%_55%/0.5)]"
               aria-label="GitHub"
             >
               <Github size={20} />
@@ -29,14 +29,14 @@ const Footer = () => {
               href="https://www.linkedin.com/in/ishaan-verma-b47146305/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-accent transition-all hover:scale-110"
+              className="text-muted-foreground hover:text-accent hover-scale hover:drop-shadow-[0_4px_12px_hsl(199_50%_52%/0.5)]"
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
             </a>
             <a
               href="mailto:ishaanverma208@gmail.com"
-              className="text-muted-foreground hover:text-primary transition-all hover:scale-110"
+              className="text-muted-foreground hover:text-primary hover-scale hover:drop-shadow-[0_4px_12px_hsl(217_60%_55%/0.5)]"
               aria-label="Email"
             >
               <Mail size={20} />

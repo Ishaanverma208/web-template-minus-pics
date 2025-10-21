@@ -69,7 +69,7 @@ const Skills = () => {
           {skillCategories.map((category, catIndex) => (
             <Card
               key={catIndex}
-              className="group p-8 md:p-10 bg-card border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 animate-fade-in-up"
+              className="group p-8 md:p-10 bg-card border-border card-glow animate-fade-in-up"
               style={{ animationDelay: `${catIndex * 0.1}s` }}
             >
               <div className="flex items-center gap-4 mb-8">

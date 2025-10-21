@@ -58,7 +58,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="group p-8 md:p-10 bg-card border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 animate-fade-in-up"
+              className="group p-8 md:p-10 bg-card border-border card-glow animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex flex-col md:flex-row gap-8">

@@ -45,7 +45,7 @@ const Leadership = () => {
           {roles.map((role, index) => (
             <Card
               key={index}
-              className="group p-8 md:p-10 bg-card border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 animate-fade-in-up"
+              className="group p-8 md:p-10 bg-card border-border card-glow animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="space-y-6">
@@ -85,7 +85,7 @@ const Leadership = () => {
 
         {/* Additional Impact Section */}
         <div className="mt-16 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: "0.3s" }}>
-          <Card className="p-10 bg-card border-border hover:border-primary/20 transition-all duration-500">
+          <Card className="p-10 bg-card border-border hover-glow">
             <div className="flex items-start gap-6">
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center">

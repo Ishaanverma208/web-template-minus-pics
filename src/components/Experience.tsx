@@ -15,7 +15,7 @@ const Experience = () => {
         </div>
 
         <div className="max-w-5xl mx-auto">
-          <Card className="group p-10 md:p-12 bg-card border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 animate-fade-in-up">
+          <Card className="group p-10 md:p-12 bg-card border-border card-glow animate-fade-in-up">
             <div className="flex flex-col md:flex-row gap-8">
               {/* Icon */}
               <div className="flex-shrink-0">

@@ -62,7 +62,7 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-8 animate-slide-in-left">
-            <Card className="p-8 bg-card border-border hover:border-primary/30 transition-all duration-500">
+            <Card className="p-8 bg-card border-border hover-glow">
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
@@ -89,7 +89,7 @@ const Contact = () => {
             </Card>
 
             {/* Social Links */}
-            <Card className="p-8 bg-card border-border hover:border-primary/30 transition-all duration-500">
+            <Card className="p-8 bg-card border-border hover-glow">
               <h3 className="text-2xl font-bold mb-6">Connect With Me</h3>
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => (
@@ -98,7 +98,7 @@ const Contact = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-14 h-14 rounded-xl bg-secondary flex items-center justify-center border border-border hover:border-primary/50 transition-all duration-300 hover:scale-110 ${social.color}`}
+                    className={`w-14 h-14 rounded-xl bg-secondary flex items-center justify-center border border-border hover:border-primary/50 hover-scale hover:shadow-[0_12px_40px_hsl(217_60%_55%/0.4)] ${social.color}`}
                     aria-label={social.label}
                   >
                     <social.icon size={24} />
@@ -118,7 +118,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="animate-slide-in-right">
-            <Card className="p-8 md:p-10 bg-card border-border hover:border-primary/30 transition-all duration-500">
+            <Card className="p-8 md:p-10 bg-card border-border hover-glow">
               <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
               <form className="space-y-6">
                 <div className="space-y-2">
@@ -170,7 +170,7 @@ const Contact = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-gradient-to-r from-primary to-accent hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/50"
+                  className="w-full bg-gradient-to-r from-primary to-accent hover-lift shadow-lg hover:shadow-[0_20px_60px_-10px_hsl(217_60%_55%/0.6)]"
                 >
                   Send Message
                   <Send className="ml-2" size={18} />

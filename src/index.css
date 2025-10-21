@@ -82,6 +82,63 @@ All colors MUST be HSL.
     box-shadow: var(--glow-primary);
   }
 
+  .hover-glow {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-glow:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px -10px hsl(217 60% 55% / 0.4),
+                0 10px 30px -10px hsl(199 50% 52% / 0.3);
+  }
+
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 40px -10px hsl(217 60% 55% / 0.35);
+  }
+
+  .hover-scale {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.15);
+  }
+
+  .card-glow {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, hsl(217 60% 55% / 0.3), hsl(199 50% 52% / 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-glow:hover::before {
+    opacity: 1;
+  }
+
+  .card-glow:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 70px -15px hsl(217 60% 55% / 0.5),
+                0 15px 40px -15px hsl(199 50% 52% / 0.4),
+                inset 0 1px 0 0 hsl(217 60% 55% / 0.1);
+  }
+
   .animate-fade-in {
     animation: fadeIn 0.8s ease-out forwards;
   }
