@@ -1,4 +1,4 @@
-import { Activity, Bot, Briefcase, ExternalLink } from "lucide-react";
+import { Activity, Bot, Briefcase, Ship } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -36,6 +36,17 @@ const Projects = () => {
         "Automated strategic gap identification"
       ],
       tech: ["Python", "Streamlit", "LangChain", "NLP", "BeautifulSoup"]
+    },
+    {
+      icon: Ship,
+      title: "Digital Import-Export Automation Platform",
+      description: "Secure AI-assisted blockchain-backed platform integrating exporters, importers, customs, and logistics with OCR/NLP document processing and ML-driven fraud detection.",
+      impact: [
+        "Automated compliance and HS code mapping",
+        "AI/ML anomaly detection for fraud prevention",
+        "95%+ accuracy in document verification"
+      ],
+      tech: ["Python", "FastAPI", "React", "OCR", "NLP", "ML", "Blockchain", "PostgreSQL"]
     }
   ];
 
