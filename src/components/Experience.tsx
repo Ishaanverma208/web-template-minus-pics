@@ -1,5 +1,6 @@
-import { Briefcase, Building2 } from "lucide-react";
+import { Briefcase } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import belLogo from "@/assets/bel-logo.png";
 
 const Experience = () => {
   return (
@@ -19,8 +20,8 @@ const Experience = () => {
             <div className="flex flex-col md:flex-row gap-8">
               {/* Icon */}
               <div className="flex-shrink-0">
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                  <Building2 size={32} className="text-white" />
+                <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center p-2 group-hover:scale-110 transition-all duration-500">
+                  <img src={belLogo} alt="Bharat Electronics Limited" className="w-full h-full object-contain" />
                 </div>
               </div>
 

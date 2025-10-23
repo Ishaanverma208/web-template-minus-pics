@@ -14,9 +14,9 @@ const Hero = () => {
 
   const displayText = useTypingEffect({
     words: typingWords,
-    typingSpeed: 120,
-    deletingSpeed: 80,
-    pauseTime: 2500,
+    typingSpeed: 60,
+    deletingSpeed: 40,
+    pauseTime: 1500,
   });
 
   return (
