@@ -1,6 +1,7 @@
-import { Github, Linkedin, Mail, ArrowRight, Code, Brain, TrendingUp } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTypingEffect } from "@/hooks/useTypingEffect";
+import Scene3D from "@/components/Scene3D";
 
 const Hero = () => {
   const typingWords = [
@@ -111,43 +112,9 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Right: Feature Cards */}
-            <div className="hidden lg:grid grid-cols-1 gap-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <div className="group p-6 rounded-2xl bg-card border border-border card-glow">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-primary to-accent">
-                    <Code size={24} className="text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">Full-Stack Developer</h3>
-                    <p className="text-sm text-muted-foreground">React, Python, SQL</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="group p-6 rounded-2xl bg-card border border-border card-glow">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-accent to-primary">
-                    <Brain size={24} className="text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">AI/ML Engineer</h3>
-                    <p className="text-sm text-muted-foreground">Deep Learning, NLP</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="group p-6 rounded-2xl bg-card border border-border card-glow">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-primary to-accent">
-                    <TrendingUp size={24} className="text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">Algo Trader</h3>
-                    <p className="text-sm text-muted-foreground">Quantitative Analysis</p>
-                  </div>
-                </div>
-              </div>
+            {/* Right: 3D Scene */}
+            <div className="hidden lg:block animate-fade-in" style={{ animationDelay: "0.2s" }}>
+              <Scene3D />
             </div>
           </div>
         </div>
