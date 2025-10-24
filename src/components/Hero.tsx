@@ -1,7 +1,7 @@
 import { Github, Linkedin, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTypingEffect } from "@/hooks/useTypingEffect";
-import Scene3D from "@/components/Scene3D";
+import DitherBackground from "@/components/DitherBackground";
 
 const Hero = () => {
   const typingWords = [
@@ -22,22 +22,20 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16">
-      {/* Professional gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/20 to-background">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        </div>
+      {/* Dither background */}
+      <div className="absolute inset-0 bg-background">
+        <DitherBackground />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
       </div>
 
       <div className="container relative z-10 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Main Content */}
-          <div className="grid lg:grid-cols-[1.2fr,1fr] gap-16 items-center">
-            {/* Left: Primary Content */}
-            <div className="space-y-8 animate-fade-in">
+          <div className="max-w-4xl mx-auto">
+            {/* Primary Content */}
+            <div className="space-y-8 animate-fade-in text-center">
               {/* Professional badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-all duration-300 hover-lift cursor-pointer">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300 hover-lift cursor-pointer">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -47,7 +45,7 @@ const Hero = () => {
 
               {/* Main heading */}
               <div className="space-y-4">
-                <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+                <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-float">
                   Hi, I'm <span className="text-gradient">Ishaan Verma</span>
                 </h1>
                 <div className="flex items-center gap-3 text-2xl md:text-3xl font-medium text-muted-foreground min-h-[2.5rem]">
@@ -58,12 +56,12 @@ const Hero = () => {
               </div>
 
               {/* Description */}
-              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                Electronics & Computer Engineering student at VIT Chennai, specializing in AI, Machine Learning, Data Analytics, and Automated Trading Systems. Building intelligent systems that think, learn, and trade.
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                Final year Electronics & Computer Engineering student at VIT Chennai, specializing in AI, Machine Learning, Data Analytics, and Automated Trading Systems. Building intelligent systems that think, learn, and trade.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 justify-center">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-primary to-accent hover-lift shadow-lg hover:shadow-[0_20px_60px_-10px_hsl(217_60%_55%/0.6)]"
@@ -75,7 +73,7 @@ const Hero = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-border hover:border-primary/50 hover-lift hover:bg-primary/5"
+                  className="border-border hover:border-primary/50 hover-lift hover:bg-primary/5 backdrop-blur-sm"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Get In Touch
@@ -83,12 +81,12 @@ const Hero = () => {
               </div>
 
               {/* Social Links */}
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 justify-center">
                 <a
                   href="https://github.com/Ishaanverma208"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-card border border-border hover:border-primary/50 hover-scale transition-all duration-300 hover:shadow-[0_8px_30px_hsl(217_60%_55%/0.4)]"
+                  className="p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 hover-scale transition-all duration-300 hover:shadow-[0_8px_30px_hsl(217_60%_55%/0.4)]"
                   aria-label="GitHub"
                 >
                   <Github size={24} />
@@ -97,24 +95,19 @@ const Hero = () => {
                   href="https://www.linkedin.com/in/ishaan-verma-b47146305/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-card border border-border hover:border-accent/50 hover-scale transition-all duration-300 hover:shadow-[0_8px_30px_hsl(199_50%_52%/0.4)]"
+                  className="p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border hover:border-accent/50 hover-scale transition-all duration-300 hover:shadow-[0_8px_30px_hsl(199_50%_52%/0.4)]"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={24} />
                 </a>
                 <a
                   href="mailto:ishaanverma208@gmail.com"
-                  className="p-3 rounded-full bg-card border border-border hover:border-primary/50 hover-scale transition-all duration-300 hover:shadow-[0_8px_30px_hsl(217_60%_55%/0.4)]"
+                  className="p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 hover-scale transition-all duration-300 hover:shadow-[0_8px_30px_hsl(217_60%_55%/0.4)]"
                   aria-label="Email"
                 >
                   <Mail size={24} />
                 </a>
               </div>
-            </div>
-
-            {/* Right: 3D Scene */}
-            <div className="hidden lg:block animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <Scene3D />
             </div>
           </div>
         </div>

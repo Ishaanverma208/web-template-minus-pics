@@ -3,8 +3,58 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Contact = () => {
+  const { toast } = useToast();
+  const { ref, isVisible } = useScrollAnimation();
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const { error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+
+      // Reset form
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error: any) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error",
+        description: error.message || "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.id]: e.target.value
+    }));
+  };
   const contactInfo = [
     {
       icon: Mail,
@@ -42,7 +92,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-32 bg-gradient-to-b from-background via-secondary/10 to-background relative overflow-hidden">
+    <section ref={ref} id="contact" className={`py-32 bg-gradient-to-b from-background via-secondary/10 to-background relative overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       {/* Subtle background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
         <div className="absolute w-96 h-96 bg-primary/10 rounded-full blur-3xl top-20 left-20 animate-pulse" />
@@ -120,7 +170,7 @@ const Contact = () => {
           <div className="animate-slide-in-right">
             <Card className="p-8 md:p-10 bg-card border-border hover-glow">
               <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium">
                     Name
@@ -129,6 +179,9 @@ const Contact = () => {
                     id="name"
                     placeholder="Your name"
                     className="bg-background border-border focus:border-primary transition-colors"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
                   />
                 </div>
 
@@ -141,6 +194,9 @@ const Contact = () => {
                     type="email"
                     placeholder="your.email@example.com"
                     className="bg-background border-border focus:border-primary transition-colors"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
                   />
                 </div>
 
@@ -152,6 +208,9 @@ const Contact = () => {
                     id="subject"
                     placeholder="What's this about?"
                     className="bg-background border-border focus:border-primary transition-colors"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
                   />
                 </div>
 
@@ -164,6 +223,9 @@ const Contact = () => {
                     placeholder="Your message..."
                     rows={6}
                     className="bg-background border-border focus:border-primary transition-colors resize-none"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
                   />
                 </div>
 
@@ -171,8 +233,9 @@ const Contact = () => {
                   type="submit"
                   size="lg"
                   className="w-full bg-gradient-to-r from-primary to-accent hover-lift shadow-lg hover:shadow-[0_20px_60px_-10px_hsl(217_60%_55%/0.6)]"
+                  disabled={loading}
                 >
-                  Send Message
+                  {loading ? "Sending..." : "Send Message"}
                   <Send className="ml-2" size={18} />
                 </Button>
               </form>
