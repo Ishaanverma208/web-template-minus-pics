@@ -27,11 +27,11 @@ const About = () => {
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
 
       <div className="container px-4 mx-auto relative z-10">
-        <div className="text-center mb-20 animate-fade-in">
+        <div className="text-left mb-20 animate-fade-in">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
             About <span className="text-gradient">Me</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
             A tech innovator combining academic excellence with practical experience in AI, machine learning, and quantitative trading
           </p>
         </div>

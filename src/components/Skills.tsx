@@ -56,11 +56,11 @@ const Skills = () => {
   return (
     <section id="skills" className="py-32 bg-gradient-to-b from-background via-secondary/10 to-background">
       <div className="container px-4 mx-auto">
-        <div className="text-center mb-20 animate-fade-in">
+        <div className="text-left mb-20 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Skills & <span className="text-gradient">Expertise</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
             Comprehensive technical and professional skillset built through academic excellence and hands-on projects
           </p>
         </div>

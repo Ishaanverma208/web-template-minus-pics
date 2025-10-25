@@ -35,12 +35,20 @@ const FloatingSkillsIcons = () => {
   const [positions, setPositions] = useState<Array<{ x: number; y: number; rotation: number }>>([]);
 
   useEffect(() => {
-    // Generate random positions for skills
-    const newPositions = skills.map(() => ({
-      x: Math.random() * 80 + 10, // 10% to 90% of container width
-      y: Math.random() * 60 + 20, // 20% to 80% of container height
-      rotation: Math.random() * 360
-    }));
+    // Generate grid-like positions with some randomness
+    const cols = 4;
+    const rows = 3;
+    const newPositions = skills.map((_, index) => {
+      const col = index % cols;
+      const row = Math.floor(index / cols);
+      const baseX = (col + 1) * (100 / (cols + 1));
+      const baseY = (row + 1) * (100 / (rows + 1));
+      return {
+        x: baseX + (Math.random() - 0.5) * 8, // Add slight randomness
+        y: baseY + (Math.random() - 0.5) * 8,
+        rotation: Math.random() * 360
+      };
+    });
     setPositions(newPositions);
   }, []);
 
@@ -56,7 +64,7 @@ const FloatingSkillsIcons = () => {
           </p>
         </div>
 
-        <div className="relative h-[400px] max-w-6xl mx-auto">
+        <div className="relative h-[500px] max-w-6xl mx-auto">
           {/* Background glow effects */}
           <div className="absolute inset-0 opacity-30">
             <div className="absolute w-64 h-64 bg-primary/20 rounded-full blur-3xl top-10 left-20 animate-pulse" />
@@ -90,12 +98,12 @@ const FloatingSkillsIcons = () => {
                   
                   {/* Icon container */}
                   <div
-                    className={`w-14 h-14 md:w-16 md:h-16 rounded-xl bg-card border-2 border-border flex items-center justify-center ${skill.color} transition-all duration-300 group-hover:border-current group-hover:shadow-lg`}
+                    className={`w-16 h-16 md:w-20 md:h-20 rounded-xl bg-card border-2 border-border flex items-center justify-center ${skill.color} transition-all duration-300 group-hover:border-current group-hover:shadow-lg`}
                     style={{
                       transform: hoveredIndex === index ? 'rotate(0deg)' : `rotate(${position.rotation}deg)`,
                     }}
                   >
-                    <Icon size={24} className="md:w-7 md:h-7" />
+                    <Icon size={28} className="md:w-9 md:h-9" />
                   </div>
 
                   {/* Skill name tooltip */}
@@ -116,10 +124,10 @@ const FloatingSkillsIcons = () => {
       <style>{`
         @keyframes float {
           0%, 100% {
-            transform: translate(-50%, -50%) translateY(0px);
+            transform: translateY(0px);
           }
           50% {
-            transform: translate(-50%, -50%) translateY(-20px);
+            transform: translateY(-15px);
           }
         }
       `}</style>
