@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
-import { useRef, useEffect, forwardRef } from 'react';
+import { useRef, useEffect, forwardRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree, ThreeEvent } from '@react-three/fiber';
-import { EffectComposer, wrapEffect } from '@react-three/postprocessing';
+import { EffectComposer } from '@react-three/postprocessing';
 import { Effect } from 'postprocessing';
 import * as THREE from 'three';
 
@@ -160,8 +160,14 @@ class RetroEffectImpl extends Effect {
 
 const RetroEffect = forwardRef<RetroEffectImpl, { colorNum: number; pixelSize: number }>((props, ref) => {
   const { colorNum, pixelSize } = props;
-  const WrappedRetroEffect = wrapEffect(RetroEffectImpl);
-  return <WrappedRetroEffect ref={ref} colorNum={colorNum} pixelSize={pixelSize} />;
+  const effect = useMemo(() => new RetroEffectImpl(), []);
+  
+  useEffect(() => {
+    effect.colorNum = colorNum;
+    effect.pixelSize = pixelSize;
+  }, [effect, colorNum, pixelSize]);
+  
+  return <primitive ref={ref} object={effect} dispose={null} />;
 });
 
 RetroEffect.displayName = 'RetroEffect';
