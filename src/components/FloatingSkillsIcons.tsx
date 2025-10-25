@@ -35,13 +35,61 @@ const FloatingSkillsIcons = () => {
   const [positions, setPositions] = useState<Array<{ x: number; y: number; rotation: number }>>([]);
 
   useEffect(() => {
-    // Generate random positions for skills
-    const newPositions = skills.map(() => ({
-      x: Math.random() * 80 + 10, // 10% to 90% of container width
-      y: Math.random() * 60 + 20, // 20% to 80% of container height
-      rotation: Math.random() * 360
-    }));
-    setPositions(newPositions);
+    // Function to check if two positions are too close
+    const isTooClose = (x1: number, y1: number, x2: number, y2: number, minDistance: number) => {
+      const distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+      return distance < minDistance;
+    };
+
+    // Generate positions with minimum spacing
+    const generatePositions = () => {
+      const newPositions: Array<{ x: number; y: number; rotation: number }> = [];
+      const minDistance = 15; // Minimum distance between icons (in percentage)
+      const maxAttempts = 100; // Maximum attempts to place each icon
+
+      for (let i = 0; i < skills.length; i++) {
+        let placed = false;
+        let attempts = 0;
+
+        while (!placed && attempts < maxAttempts) {
+          const x = Math.random() * 70 + 15; // 15% to 85% of container width
+          const y = Math.random() * 60 + 20; // 20% to 80% of container height
+          
+          // Check if this position is far enough from all existing positions
+          let valid = true;
+          for (const pos of newPositions) {
+            if (isTooClose(x, y, pos.x, pos.y, minDistance)) {
+              valid = false;
+              break;
+            }
+          }
+
+          if (valid || newPositions.length === 0) {
+            newPositions.push({
+              x,
+              y,
+              rotation: Math.random() * 360
+            });
+            placed = true;
+          }
+
+          attempts++;
+        }
+
+        // If we couldn't find a valid position after max attempts, place it anyway
+        if (!placed) {
+          newPositions.push({
+            x: Math.random() * 70 + 15,
+            y: Math.random() * 60 + 20,
+            rotation: Math.random() * 360
+          });
+        }
+      }
+
+      return newPositions;
+    };
+
+    setPositions(generatePositions());
   }, []);
 
   return (
