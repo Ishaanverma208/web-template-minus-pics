@@ -346,3 +346,10 @@ export default function Dither({
     </Canvas>
   );
 }
+
+.dither-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
