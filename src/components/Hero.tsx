@@ -40,16 +40,15 @@ const Hero = () => {
           <span className="text-sm font-medium text-muted-foreground">Open to opportunities</span>
         </div>
 
-        {/* Centered Heading */}
-        <div className="flex flex-col items-center justify-center text-center space-y-4">
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-float">
+        {/* Centered Heading - FIXED */}
+        <div className="flex flex-col items-center justify-center space-y-4 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
             Hi, I'm <span className="text-gradient">Ishaan Verma</span>
           </h1>
-          <div className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-medium text-muted-foreground min-h-[2.5rem]">
-            <span>I'm a</span>
-            <span className="text-gradient">{displayText}</span>
-            <span className="w-0.5 h-8 bg-primary animate-pulse" />
-          </div>
+          <p className="text-2xl md:text-3xl text-muted-foreground min-h-[40px]">
+            {displayText}
+            <span className="animate-pulse">|</span>
+          </p>
         </div>
 
         {/* Description */}
