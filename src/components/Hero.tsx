@@ -1,7 +1,7 @@
 import { Github, Linkedin, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTypingEffect } from "@/hooks/useTypingEffect";
-import Dither from "@/components/Dither";
+import DitherBackground from "@/components/DitherBackground";
 
 const Hero = () => {
   const typingWords = [
@@ -24,25 +24,16 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16">
       {/* Dither background */}
       <div className="absolute inset-0 bg-background">
-        <Dither 
-          waveColor={[0.25, 0.45, 0.75]}
-          waveSpeed={0.03}
-          waveFrequency={2.5}
-          waveAmplitude={0.35}
-          colorNum={5}
-          pixelSize={2}
-          enableMouseInteraction={true}
-          mouseRadius={0.8}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/60 to-background" />
+        <DitherBackground />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
       </div>
 
       <div className="container relative z-10 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Main Content */}
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mx-auto">
             {/* Primary Content */}
-            <div className="space-y-8 animate-fade-in text-left">
+            <div className="space-y-8 animate-fade-in text-center">
               {/* Professional badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300 hover-lift cursor-pointer">
                 <span className="relative flex h-2 w-2">
@@ -65,12 +56,12 @@ const Hero = () => {
               </div>
 
               {/* Description */}
-              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 Final year Electronics & Computer Engineering student at VIT Chennai, specializing in AI, Machine Learning, Data Analytics, and Automated Trading Systems. Building intelligent systems that think, learn, and trade.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4 justify-start">
+              <div className="flex flex-wrap gap-4 justify-center">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-primary to-accent hover-lift shadow-lg hover:shadow-[0_20px_60px_-10px_hsl(217_60%_55%/0.6)]"
@@ -90,7 +81,7 @@ const Hero = () => {
               </div>
 
               {/* Social Links */}
-              <div className="flex items-center gap-4 justify-start">
+              <div className="flex items-center gap-4 justify-center">
                 <a
                   href="https://github.com/Ishaanverma208"
                   target="_blank"

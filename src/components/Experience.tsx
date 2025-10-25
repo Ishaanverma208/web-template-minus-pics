@@ -6,11 +6,11 @@ const Experience = () => {
   return (
     <section id="experience" className="py-32 bg-gradient-to-b from-background via-secondary/10 to-background">
       <div className="container px-4 mx-auto">
-        <div className="text-left mb-20 animate-fade-in">
+        <div className="text-center mb-20 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Professional <span className="text-gradient">Experience</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Real-world industrial exposure in defense electronics and automation
           </p>
         </div>

@@ -56,11 +56,11 @@ const Projects = () => {
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
       <div className="container px-4 mx-auto relative z-10">
-        <div className="text-left mb-20 animate-fade-in">
+        <div className="text-center mb-20 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Featured <span className="text-gradient">Projects</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Innovative solutions leveraging AI, machine learning, and data analytics to solve real-world problems
           </p>
         </div>
