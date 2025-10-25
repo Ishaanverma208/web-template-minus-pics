@@ -31,7 +31,7 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-10 px-4 mx-auto">
-        <div className="flex flex-col items-center justify-center text-center space-y-8 max-w-5xl mx-auto">
+        <div className="flex flex-col items-center justify-center text-center space-y-10 max-w-5xl mx-auto">
           {/* Professional badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300 hover-lift cursor-pointer">
             <span className="relative flex h-2 w-2">
@@ -41,27 +41,27 @@ const Hero = () => {
             <span className="text-sm font-medium text-muted-foreground">Open to opportunities</span>
           </div>
 
-          {/* Centered Heading */}
-          <div className="w-full flex flex-col items-center justify-center space-y-4">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center w-full">
+          {/* Centered Heading - FIXED with proper spacing */}
+          <div className="w-full flex flex-col items-center justify-center space-y-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center w-full px-4">
               Hi, I'm <span className="text-gradient">Ishaan Verma</span>
             </h1>
-            <p className="text-2xl md:text-3xl text-muted-foreground min-h-[40px] text-center w-full">
+            <p className="text-xl sm:text-2xl md:text-3xl text-muted-foreground min-h-[40px] text-center w-full px-4">
               {displayText}
               <span className="animate-pulse">|</span>
             </p>
           </div>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed text-center">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed text-center px-4">
             Final year Electronics & Computer Engineering student at VIT Chennai, specializing in AI, Machine Learning, Data Analytics, and Automated Trading Systems. Building intelligent systems that think, learn, and trade.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full px-4">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-primary to-accent hover-lift shadow-lg hover:shadow-[0_20px_60px_-10px_hsl(217_60%_55%/0.6)]"
+              className="bg-gradient-to-r from-primary to-accent hover-lift shadow-lg hover:shadow-[0_20px_60px_-10px_hsl(217_60%_55%/0.6)] w-full sm:w-auto"
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
               View My Work
@@ -70,7 +70,7 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-border hover:border-primary/50 hover-lift hover:bg-primary/5 backdrop-blur-sm"
+              className="border-border hover:border-primary/50 hover-lift hover:bg-primary/5 backdrop-blur-sm w-full sm:w-auto"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Get In Touch
@@ -78,7 +78,7 @@ const Hero = () => {
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-4 justify-center">
+          <div className="flex items-center gap-4 justify-center pt-4">
             <a
               href="https://github.com/Ishaanverma208"
               target="_blank"
