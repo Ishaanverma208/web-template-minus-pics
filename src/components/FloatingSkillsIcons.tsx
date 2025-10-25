@@ -41,24 +41,27 @@ const FloatingSkillsIcons = () => {
       return distance < minDistance;
     };
 
-    // Generate positions with minimum spacing
+    // Generate positions with guaranteed minimum spacing
     const generatePositions = () => {
       const newPositions: Array<{ x: number; y: number; rotation: number }> = [];
-      const minDistance = 15; // Minimum distance between icons (in percentage)
-      const maxAttempts = 100; // Maximum attempts to place each icon
+      const minDistance = 22; // Increased minimum distance to prevent any overlap
+      const floatRange = 3; // Account for floating animation movement
+      const safeDistance = minDistance + floatRange; // Total safe distance
+      const maxAttempts = 500; // Increased attempts for better placement
 
       for (let i = 0; i < skills.length; i++) {
         let placed = false;
         let attempts = 0;
 
         while (!placed && attempts < maxAttempts) {
-          const x = Math.random() * 70 + 15; // 15% to 85% of container width
-          const y = Math.random() * 60 + 20; // 20% to 80% of container height
+          // More constrained random positioning to avoid edges
+          const x = Math.random() * 60 + 20; // 20% to 80% of container width
+          const y = Math.random() * 50 + 25; // 25% to 75% of container height
           
           // Check if this position is far enough from all existing positions
           let valid = true;
           for (const pos of newPositions) {
-            if (isTooClose(x, y, pos.x, pos.y, minDistance)) {
+            if (isTooClose(x, y, pos.x, pos.y, safeDistance)) {
               valid = false;
               break;
             }
@@ -76,11 +79,14 @@ const FloatingSkillsIcons = () => {
           attempts++;
         }
 
-        // If we couldn't find a valid position after max attempts, place it anyway
+        // If we couldn't find a valid position, use grid-based fallback
         if (!placed) {
+          const gridSize = Math.ceil(Math.sqrt(skills.length));
+          const row = Math.floor(i / gridSize);
+          const col = i % gridSize;
           newPositions.push({
-            x: Math.random() * 70 + 15,
-            y: Math.random() * 60 + 20,
+            x: 20 + (col * 60 / gridSize),
+            y: 25 + (row * 50 / gridSize),
             rotation: Math.random() * 360
           });
         }
@@ -104,7 +110,7 @@ const FloatingSkillsIcons = () => {
           </p>
         </div>
 
-        <div className="relative h-[400px] max-w-6xl mx-auto">
+        <div className="relative h-[500px] max-w-6xl mx-auto">
           {/* Background glow effects */}
           <div className="absolute inset-0 opacity-30">
             <div className="absolute w-64 h-64 bg-primary/20 rounded-full blur-3xl top-10 left-20 animate-pulse" />
@@ -126,6 +132,7 @@ const FloatingSkillsIcons = () => {
                   transform: `translate(-50%, -50%) ${hoveredIndex === index ? 'scale(1.3)' : 'scale(1)'}`,
                   animation: `float ${3 + index * 0.3}s ease-in-out infinite`,
                   animationDelay: `${skill.delay}s`,
+                  zIndex: hoveredIndex === index ? 20 : 10,
                 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
@@ -138,41 +145,15 @@ const FloatingSkillsIcons = () => {
                   
                   {/* Icon container */}
                   <div
-                    className={`w-14 h-14 md:w-16 md:h-16 rounded-xl bg-card border-2 border-border flex items-center justify-center ${skill.color} transition-all duration-300 group-hover:border-current group-hover:shadow-lg`}
+                    className={`w-16 h-16 md:w-18 md:h-18 rounded-xl bg-card border-2 border-border flex items-center justify-center ${skill.color} transition-all duration-300 group-hover:border-current group-hover:shadow-lg`}
                     style={{
                       transform: hoveredIndex === index ? 'rotate(0deg)' : `rotate(${position.rotation}deg)`,
                     }}
                   >
-                    <Icon size={24} className="md:w-7 md:h-7" />
+                    <Icon size={28} className="md:w-8 md:h-8" />
                   </div>
 
                   {/* Skill name tooltip */}
                   <div
-                    className={`absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 rounded-lg bg-card border border-border text-sm font-medium transition-all duration-300 ${
-                      hoveredIndex === index ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
-                    }`}
-                  >
-                    {skill.name}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      <style>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translate(-50%, -50%) translateY(0px);
-          }
-          50% {
-            transform: translate(-50%, -50%) translateY(-20px);
-          }
-        }
-      `}</style>
-    </section>
-  );
-};
-
-export default FloatingSkillsIcons;
+                    className={`absolute top-full mt-3 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1.5 rounded-lg bg-card border border-border text-sm font-medium transition-all duration-300 shadow-lg ${
+                      hoveredIndex === index ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-
