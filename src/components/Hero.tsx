@@ -24,14 +24,14 @@ const Hero = () => {
   });
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-background">
         <DitherBackground />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
       </div>
 
       <div className="container relative z-10 px-4 mx-auto max-w-6xl">
-        <div className="flex flex-col items-center justify-center space-y-10">
+        <div className="flex flex-col items-start space-y-10 max-w-4xl">
           {/* Professional badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300 hover-lift cursor-pointer">
             <span className="relative flex h-2 w-2">
@@ -41,33 +41,24 @@ const Hero = () => {
             <span className="text-sm font-medium text-muted-foreground">Open to opportunities</span>
           </div>
 
-          {/* Centered Heading - WITH INLINE STYLE FOR GUARANTEED CENTERING */}
-          <div className="w-full flex flex-col items-center justify-center space-y-6">
-            <h1 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold w-full px-4"
-              style={{ textAlign: 'center' }}
-            >
+          {/* Left-aligned Heading */}
+          <div className="flex flex-col space-y-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
               Hi, I'm <span className="text-gradient">Ishaan Verma</span>
             </h1>
-            <p 
-              className="text-xl sm:text-2xl md:text-3xl text-muted-foreground min-h-[40px] w-full px-4"
-              style={{ textAlign: 'center' }}
-            >
+            <p className="text-xl sm:text-2xl md:text-3xl text-muted-foreground min-h-[40px]">
               {displayText}
               <span className="animate-pulse">|</span>
             </p>
           </div>
 
           {/* Description */}
-          <p 
-            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed px-4"
-            style={{ textAlign: 'center' }}
-          >
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
             Final year Electronics & Computer Engineering student at VIT Chennai, specializing in AI, Machine Learning, Data Analytics, and Automated Trading Systems. Building intelligent systems that think, learn, and trade.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full px-4">
+          <div className="flex flex-col sm:flex-row gap-4">
             <Button
               size="lg"
               className="bg-gradient-to-r from-primary to-accent hover-lift shadow-lg hover:shadow-[0_20px_60px_-10px_hsl(217_60%_55%/0.6)] w-full sm:w-auto"
@@ -87,7 +78,7 @@ const Hero = () => {
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-4 justify-center pt-4">
+          <div className="flex items-center gap-4 pt-4">
             <a
               href="https://github.com/Ishaanverma208"
               target="_blank"
