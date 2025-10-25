@@ -44,16 +44,17 @@ const Hero = () => {
               </div>
 
               {/* Main heading */}
-              <div className="space-y-4">
-                <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-float">
-                  Hi, I'm <span className="text-gradient">Ishaan Verma</span>
-                </h1>
-                <div className="flex items-center gap-3 text-2xl md:text-3xl font-medium text-muted-foreground min-h-[2.5rem]">
-                  <span>I'm a</span>
-                  <span className="text-gradient">{displayText}</span>
-                  <span className="w-0.5 h-8 bg-primary animate-pulse" />
+              <div className="flex flex-col items-center justify-center min-h-screen text-center space-y-4">
+                  <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-float">
+                    Hi, I'm <span className="text-gradient">Ishaan Verma</span>
+                  </h1>
+                  <div className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-medium text-muted-foreground min-h-[2.5rem]">
+                    <span>I'm a</span>
+                    <span className="text-gradient">{displayText}</span>
+                    <span className="w-0.5 h-8 bg-primary animate-pulse" />
+                  </div>
                 </div>
-              </div>
+
 
               {/* Description */}
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
