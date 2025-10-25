@@ -32,11 +32,11 @@ const Leadership = () => {
   return (
     <section id="leadership" className="py-32 bg-gradient-to-b from-background via-secondary/10 to-background">
       <div className="container px-4 mx-auto">
-        <div className="text-center mb-20 animate-fade-in">
+        <div className="text-left mb-20 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Leadership & <span className="text-gradient">Impact</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
             Building communities and driving positive change beyond technical work
           </p>
         </div>

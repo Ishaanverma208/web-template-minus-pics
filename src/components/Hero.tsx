@@ -24,8 +24,17 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16">
       {/* Dither background */}
       <div className="absolute inset-0 bg-background">
-        <Dither waveColor={[0.3, 0.5, 0.7]} />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
+        <Dither 
+          waveColor={[0.25, 0.45, 0.75]}
+          waveSpeed={0.03}
+          waveFrequency={2.5}
+          waveAmplitude={0.35}
+          colorNum={5}
+          pixelSize={2}
+          enableMouseInteraction={true}
+          mouseRadius={0.8}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/60 to-background" />
       </div>
 
       <div className="container relative z-10 px-4">

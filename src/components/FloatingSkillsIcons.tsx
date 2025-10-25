@@ -55,11 +55,11 @@ const FloatingSkillsIcons = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-background to-secondary/10 relative overflow-hidden">
       <div className="container px-4 mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-left mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Technical <span className="text-gradient">Arsenal</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl">
             Hover over the icons to explore my technical skills
           </p>
         </div>

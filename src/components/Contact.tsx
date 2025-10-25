@@ -21,14 +21,39 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate form fields
+    if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
+      toast({
+        title: "Validation Error",
+        description: "Please fill in all fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const { error } = await supabase.functions.invoke('send-contact-email', {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
         body: formData
       });
 
-      if (error) throw error;
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw new Error(error.message || 'Failed to send message');
+      }
 
       toast({
         title: "Message sent!",
@@ -40,8 +65,8 @@ const Contact = () => {
     } catch (error: any) {
       console.error('Error sending message:', error);
       toast({
-        title: "Error",
-        description: error.message || "Failed to send message. Please try again.",
+        title: "Error sending message",
+        description: error.message || "Please try again or email me directly at ishaanverma208@gmail.com",
         variant: "destructive",
       });
     } finally {
@@ -100,11 +125,11 @@ const Contact = () => {
       </div>
 
       <div className="container px-4 mx-auto relative z-10">
-        <div className="text-center mb-20 animate-fade-in">
+        <div className="text-left mb-20 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Get In <span className="text-gradient">Touch</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
             Let's connect! I'm always open to discussing new opportunities, collaborations, or just having a chat about tech
           </p>
         </div>
