@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import DitherBackground from "@/components/DitherBackground";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -92,11 +93,11 @@ const Contact = () => {
   ];
 
   return (
-    <section ref={ref} id="contact" className={`py-32 bg-gradient-to-b from-background via-secondary/10 to-background relative overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-      {/* Subtle background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
-        <div className="absolute w-96 h-96 bg-primary/10 rounded-full blur-3xl top-20 left-20 animate-pulse" />
-        <div className="absolute w-96 h-96 bg-accent/10 rounded-full blur-3xl bottom-20 right-20 animate-pulse" style={{ animationDelay: "1s" }} />
+    <section ref={ref} id="contact" className={`py-32 relative overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      {/* Dither Background with fade-in */}
+      <div className={`absolute inset-0 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <DitherBackground />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/80 to-background" />
       </div>
 
       <div className="container px-4 mx-auto relative z-10">
