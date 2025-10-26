@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
-import { useRef, useEffect, forwardRef } from 'react';
+import { useRef, useEffect, useMemo } from 'react';
 import { Canvas, useFrame, useThree, ThreeEvent } from '@react-three/fiber';
-import { EffectComposer, wrapEffect } from '@react-three/postprocessing';
+import { EffectComposer } from '@react-three/postprocessing';
 import { Effect } from 'postprocessing';
 import * as THREE from 'three';
 
@@ -158,13 +158,15 @@ class RetroEffectImpl extends Effect {
   }
 }
 
-const RetroEffect = forwardRef<RetroEffectImpl, { colorNum: number; pixelSize: number }>((props, ref) => {
-  const { colorNum, pixelSize } = props;
-  const WrappedRetroEffect = wrapEffect(RetroEffectImpl);
-  return <WrappedRetroEffect ref={ref} colorNum={colorNum} pixelSize={pixelSize} />;
-});
-
-RetroEffect.displayName = 'RetroEffect';
+function RetroEffect({ colorNum, pixelSize }: { colorNum: number; pixelSize: number }) {
+  const effect = useMemo(() => new RetroEffectImpl(), []);
+  // Update uniforms when props change
+  useEffect(() => {
+    effect.colorNum = colorNum;
+    effect.pixelSize = pixelSize;
+  }, [colorNum, pixelSize, effect]);
+  return <primitive object={effect} />;
+}
 
 interface WaveUniforms {
   [key: string]: THREE.Uniform<any>;
@@ -304,7 +306,7 @@ export default function Dither({
   waveSpeed = 0.05,
   waveFrequency = 3,
   waveAmplitude = 0.3,
-  waveColor = [0.5, 0.5, 0.5],
+  waveColor = [0.2, 0.45, 0.85],
   colorNum = 4,
   pixelSize = 2,
   disableAnimation = false,
