@@ -31,7 +31,7 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-10 px-4 mx-auto max-w-6xl">
-        <div className="flex flex-col items-start space-y-10 max-w-4xl">
+        <div className="flex flex-col items-center justify-center space-y-10 text-center">
           {/* Professional badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300 hover-lift cursor-pointer">
             <span className="relative flex h-2 w-2">

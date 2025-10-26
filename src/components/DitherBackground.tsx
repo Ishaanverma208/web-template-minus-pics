@@ -1,17 +1,3 @@
-import Dither from './Dither';
-
-<div style={{ width: '100%', height: '600px', position: 'relative' }}>
-  <Dither
-    waveColor={[0.5, 0.5, 0.5]}
-    disableAnimation={false}
-    enableMouseInteraction={true}
-    mouseRadius={0.3}
-    colorNum={4}
-    waveAmplitude={0.3}
-    waveFrequency={3}
-    waveSpeed={0.05}
-  />
-</div>
 /* eslint-disable react/no-unknown-property */
 import { useRef, useEffect, forwardRef } from 'react';
 import { Canvas, useFrame, useThree, ThreeEvent } from '@react-three/fiber';
@@ -149,7 +135,7 @@ void mainImage(in vec4 inputColor, in vec2 uv, out vec4 outputColor) {
 `;
 
 class RetroEffectImpl extends Effect {
-  public uniforms: Map<string, THREE.Uniform<any>>;
+  declare public uniforms: Map<string, THREE.Uniform<any>>;
   constructor() {
     const uniforms = new Map<string, THREE.Uniform<any>>([
       ['colorNum', new THREE.Uniform(4.0)],
@@ -345,11 +331,5 @@ export default function Dither({
       />
     </Canvas>
   );
-}
-
-.dither-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
 }
 
