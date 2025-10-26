@@ -5,15 +5,14 @@ import DitherBackground from "@/components/DitherBackground";
 
 const Hero = () => {
   const typingWords = [
-    "AI Engineer",
-    "ML Developer",
+    "Quantitative Developer",
     "Algo Trader",
-    "Full-Stack Developer",
-    "Data Analyst",
-    "Problem Solver",
-    "Decision Analyst",
-    "Capital Market Trader",
-    "Business Analyst",
+    "ML Engineer",
+    "Financial Analyst",
+    "Trading Systems Developer",
+    "Market Data Specialist",
+    "Risk Analytics Engineer",
+    "Portfolio Optimizer",
   ];
 
   const displayText = useTypingEffect({
@@ -54,7 +53,7 @@ const Hero = () => {
 
           {/* Description */}
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            Final year Electronics & Computer Engineering student at VIT Chennai, specializing in AI, Machine Learning, Data Analytics, and Automated Trading Systems. Building intelligent systems that think, learn, and trade.
+            Final year Electronics & Computer Engineering student at VIT Chennai, specializing in Quantitative Finance, Algorithmic Trading, Machine Learning, and Financial Data Analytics. Engineering intelligent trading systems that analyze markets, predict trends, and execute strategies.
           </p>
 
           {/* CTA Buttons */}

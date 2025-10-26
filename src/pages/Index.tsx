@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import MarketStats from "@/components/MarketStats";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
@@ -16,6 +17,7 @@ const Index = () => {
       <Navigation />
       <Hero />
       <FloatingSkillsIcons />
+      <ScrollAnimatedSection><MarketStats /></ScrollAnimatedSection>
       <ScrollAnimatedSection><About /></ScrollAnimatedSection>
       <ScrollAnimatedSection><Experience /></ScrollAnimatedSection>
       <ScrollAnimatedSection><Projects /></ScrollAnimatedSection>
