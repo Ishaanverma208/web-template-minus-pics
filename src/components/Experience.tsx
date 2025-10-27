@@ -37,7 +37,7 @@ const Experience = () => {
                     <p className="text-xl font-semibold text-muted-foreground">Bharat Electronics Limited (BEL)</p>
                   </div>
                   <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">
-                    May 2024 - July 2024
+                    May 2025 - July 2025
                   </span>
                 </div>
 
