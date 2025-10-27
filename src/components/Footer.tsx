@@ -9,10 +9,6 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <span>© {currentYear} Ishaan Verma</span>
-            <span>•</span>
-            <span className="flex items-center gap-1">
-              Built with <Heart size={14} className="text-primary inline animate-pulse" /> and React
-            </span>
           </div>
 
           <div className="flex items-center gap-6">
