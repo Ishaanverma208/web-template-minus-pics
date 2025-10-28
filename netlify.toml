@@ -3,7 +3,7 @@
 [build]
   # From your screenshot, it looks like your build output folder is '.dist'.
   # If it's different (like 'public' or 'build'), change this line.
-  publish = ".dist"
+  publish = "dist"
 
 [functions]
   # This tells Netlify to look for your function files inside the 'netlify/functions' folder.
